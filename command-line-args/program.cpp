@@ -1,8 +1,8 @@
 #include <iostream>
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) //argc - cmd args count
 {
-	if (argc == 1) // always have exe name as command line arg
+	if (argc == 1) // always have exe name as first command line arg
 	{
 		std::cout << "No arguments \n";
 		std::cout << "filename:" << argv[0];

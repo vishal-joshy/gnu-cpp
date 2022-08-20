@@ -8,10 +8,13 @@ typedef int (*PowerFunction)(int);
 int main(int argc, char **argv)
 {
     void *handle = dlopen("./libMath.so", RTLD_LAZY);
+    char *error;
 
     binaryFunction add = (binaryFunction)dlsym(handle, "Add");
-    binaryFunction sub = (binaryFunction)dlsym(handle, "Sub");
     PowerFunction pow = (PowerFunction)dlsym(handle, "Pow");
+
+    int (*sub)(int,int);
+    *(void**) (&sub) = dlsym(handle, "Sub");
 
     std::cout << (*pow)(2) << std::endl;
     std::cout << (*add)(2, 3) << std::endl;
