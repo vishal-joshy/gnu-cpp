@@ -21,9 +21,5 @@ struct adder<0>
 
 int main(void)
 {
-	// std::cout << adder<10>::value;
-	int a = 10;
-	// int *ptr;
-	void * ptr = &a;
-	std::cout << *(int*)ptr;
+	std::cout << adder<10>::value;
 }
